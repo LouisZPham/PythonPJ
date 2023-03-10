@@ -7,7 +7,7 @@ assert "openai" in openai_secret_manager.get_services()
 secrets = openai_secret_manager.get_secret("openai")
 
 # Set OpenAI API key
-openai.api_key = secrets["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"]
+openai.api_key = secrets["sk-zK**************9zyboTPhO1kc"]
 
 # Generate text
 prompt = "The quick brown fox"
