@@ -1,16 +1,15 @@
-# Mean
-list1 = [1, 14, 25, 20, 12, 32, 52, 21, 124, 42]
-mean = sum(list1)/len(list1)
-print(mean)
+#Create a list that groups all the elements with same index into lists in a list
+givenLists = [[10, 30, 30], [40, 50, 60], [70, 80, 90]]
+outputLists = []
+index = 0
+for i in range(len(givenLists[1])):
+    outputLists.append([])
+    for j in range(len(givenLists)):
+    # Append the element at the current index of the current sublist to the output list
+        outputLists[index].append(givenLists[j][index])
+    index = index + 1
 
-#Median
+# Unpack the output list into separate variables
+a, b, c = outputLists[0], outputLists[1], outputLists[2]
 
-list1.sort()
-
-if len(list1) % 2 == 0:
-    m1 = list1[len(list1)//2]
-    m2 = list1[len(list1)//2 - 1]
-    median = (m1 + m2)/2
-else:
-    median = list1[len(list1)//2]
-print(median)
+print(a, b, c)

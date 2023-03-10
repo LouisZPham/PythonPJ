@@ -1,4 +1,22 @@
-import emoji
+import random
 
-print(emoji.emojize("Books here: :books:"))
-print(emoji.emojize("Some people have a very sensitive heart:red_heart: or :T-rex:, please be kind with them.:hibiscus:, :croissant:"))
+try:
+    player1 = input("Select Rock, Paper, or Scissor :").lower()
+    if player1 not in ["rock", "paper", "scissor"]:
+        raise ValueError("Invalid input. Please select Rock, Paper, or Scissor.")
+except ValueError as ve:
+    print(ve)
+else:
+    player2 = random.choice(["Rock", "Paper", "Scissor"]).lower()
+    print("Player 2 selected: ", player2)
+
+    if player1 == "rock" and player2 == "paper":
+        print("Player 2 Won")
+    elif player1 == "paper" and player2 == "scissor":
+        print("Player 2 Won")
+    elif player1 == "scissor" and player2 == "rock":
+        print("Player 2 Won")
+    elif player1 == player2:
+        print("Tie")
+    else:
+        print("Player 1 Won")

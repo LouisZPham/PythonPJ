@@ -1,19 +1,15 @@
 import random
 
-# Generate a random number between 1 and 100 and store it in a variable
 n = random.randint(1, 100)
-# Define the range of possible guesses
 range_min = 1
 range_max = 100
 current_range = (range_min, range_max)
 
-# Print a message telling the user to guess the number
 print(f"I'm thinking of a number between {range_min} and {range_max}. Can you guess what it is?")
 
-# Loop until the user guesses the correct number
 attempts = 0
 while True:
-    # Ask the user to guess the number
+    # Ask the user to guess the numbe
     guess = int(input("Enter your guess: "))
     attempts += 1
     # Check if the guess is correct

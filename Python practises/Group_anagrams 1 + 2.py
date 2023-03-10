@@ -1,17 +1,28 @@
-def findMissingNumbers(n):
-    # Create a set of all the numbers in the input list
-    numbers = set(n)
-    # Get the length of the input list
-    length = len(n)
-    # Create an empty list to store the missing numbers
-    output = []
-    
-    # Iterate over the range of numbers from 1 to the second-to-last number in the input list
-    for i in range(1, n[-1]):
-        # If the current number is not in the set of numbers from the input list, it is missing
-        if i not in numbers:
-            # Append the missing number to the output list
-            output.append(i)
-    return output
-listOfNumbers = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 16]
-print(findMissingNumbers(listOfNumbers))
+from collections import defaultdict
+
+def group_anagrams(a):
+    dfdict = defaultdict(list)
+    for i in a:
+        sorted_i = " ".join(sorted(i))
+        dfdict[sorted_i].append(i)
+    return dfdict.values()
+
+words = ["tea", "eat", "bat", "ate", "arc", "car"]
+print(group_anagrams(words))
+
+#Another one without using defaultdict
+
+def group_anagrams2(b):
+    anagram_dict = {}
+    for word in b:
+        sorted_word = tuple(sorted(word))
+        # If the sorted word is already a key in the dictionary, append the original word to its list of anagrams
+        if sorted_word in anagram_dict:
+            anagram_dict[sorted_word].append(word)
+        # Otherwise, create a new key for the sorted word and set its value to a list containing the original word
+        else:
+            anagram_dict[sorted_word] = [word]
+    return list(anagram_dict.values())
+
+listofwords = ["men", "nem","rat", "tar", "tra"]
+print(group_anagrams2(listofwords))

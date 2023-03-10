@@ -1,9 +1,4 @@
-from spellchecker import SpellChecker
-corrector = SpellChecker()
+import emoji
 
-word = input("Enter a Word or words : ")
-if word in corrector:
-    print("Correct")
-else:
-    correct_word = corrector.correction(word)
-    print("Correct Spelling is ", correct_word)
+print(emoji.emojize("Books here: :books:"))
+print(emoji.emojize("Some people have a very sensitive heart:red_heart: or :T-rex:, please be kind with them.:hibiscus:, :croissant:"))

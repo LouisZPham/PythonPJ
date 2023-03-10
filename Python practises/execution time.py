@@ -3,7 +3,6 @@ import timeit
 #Use time to check execution_time
 start = time()
 
-# Python program to create acronyms
 word = "End of today I have to fulfill all my tasks to the fulliest"
 text = word.split()
 a = " "

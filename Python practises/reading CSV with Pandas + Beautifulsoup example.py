@@ -1,19 +1,20 @@
-from time import time
-import timeit
-#Use time to check execution_time
-start = time()
+#install pandas, numby, pytz
+import pandas
+import requests
+from bs4 import BeautifulSoup
 
-# Python program to create acronyms
-word = "Artificial Intelligence"
-text = word.split()
-a = " "
-for i in text:
-    a = a+str(i[0]).upper()
-print(a)
+url = 'https://www.latex-project.org/latex3/'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+title = soup.title.string
+text = soup.get_text()
+words = text.split()
 
-end = time()
-execution_time = end - start
-print("Execution Time : ", execution_time)
-#use timeit to check time loop
-timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
-timeit.timeit(lambda: "-".join(map(str, range(100))), number=10000)
+print(title)
+print(words)
+print(" ".join(words))
+###
+data = pandas.read_csv("D:\Python\reads2.csv", encoding='utf-8')
+#The parser error occured. 
+print(data.head())
+###

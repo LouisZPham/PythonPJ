@@ -1,8 +1,9 @@
-import requests
-from bs4 import BeautifulSoup as bs
+from spellchecker import SpellChecker
+corrector = SpellChecker()
 
-github_profile = "https://github.com/LouisZPham"
-req = requests.get(github_profile)
-scraper = bs(req.content, "html.parser")
-profile_picture = scraper.find("img", {"alt": "Avatar"})["src"]
-print(profile_picture)
+word = input("Enter a Word or words : ")
+if word in corrector:
+    print("Correct")
+else:
+    correct_word = corrector.correction(word)
+    print("Correct Spelling is ", correct_word)
